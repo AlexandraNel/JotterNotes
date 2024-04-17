@@ -10,11 +10,11 @@ const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
 //this automatically caches files that are part of the webpack build process- this enables quick offline loading
 precacheAndRoute(self.__WB_MANIFEST);
 
-// Setup offline fallbacks
-offlineFallback({
-  pageFallback: '/offline.html',  // Fallback for navigation requests
-  imageFallback: '/images/offline.png',  // Fallback for image requests
-});
+// // Setup offline fallbacks
+// offlineFallback({
+//   pageFallback: '/offline.html',  // Fallback for navigation requests
+//   imageFallback: '/images/offline.png',  // Fallback for image requests
+// });
 
 //cache strategy for pages = cache first ie. call cache before network called for response
 const pageCache = new CacheFirst({

@@ -52,7 +52,7 @@ module.exports = () => {
     ],
 
     module: {
-      // CSS loaders
+      // CSS loaders are tranlators for the webpack js
       rules: [
         {
           test: /\.css$/i,
@@ -61,7 +61,7 @@ module.exports = () => {
         {
           test: /\.m?js$/,
           exclude: /node_modules/,
-          // We use babel-loader in order to use ES6.
+          // We use babel-loader in order to use ES6. as older run time engines on browsers use 'common js'
           use: {
             loader: 'babel-loader',
             options: {
