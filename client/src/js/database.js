@@ -17,7 +17,7 @@ export const putDb = async (content) => {
   console.log('add content to the database');
 
   // Create a connection to the database database and version we want to use.
-  const contactDb = await openDB('jate', 1);
+  try {const contactDb = await openDB('jate', 1);
 
   // Create a new transaction and specify the database and data privileges.
   const tx = contactDb.transaction('jate', 'readwrite');
@@ -31,15 +31,17 @@ export const putDb = async (content) => {
 
   // Get confirmation of the request.
   const result = await request;
-  console.log('Data saved to the database', result);
+  console.log('Data saved to the database', result);}
+  catch (error) {
   console.error('putDb not implemented');
+}
 };
 
 
 // Export a function we will use to GET to the database.
 export const getDb = async () => {
   console.log('GET from the database');
-
+try{
   // Create a connection to the database database and version we want to use.
   const contactDb = await openDB('jate', 1);
 
@@ -51,12 +53,14 @@ export const getDb = async () => {
 
   // Use the .getAll() method to get all data in the database.
   const request = store.getAll();
-  console.error('getDb not implemented');
+  
   // Get confirmation of the request.
   const result = await request;
   console.log('result.value', result);
-  return result;
-
+  return result;}
+  catch (err)
+{console.error('getDb not implemented');};
 };
 
 initdb();
+
